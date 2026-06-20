@@ -1,0 +1,30 @@
+#!/bin/bash
+# Dither Engine launcher — native WKWebView via JXA (no server, no dependencies).
+BUNDLE_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+HTML_PATH="$BUNDLE_DIR/Resources/dither-engine.html"
+MAIN_JS="$BUNDLE_DIR/Resources/main.js"
+LOG_DIR="$HOME/Library/Logs"
+LOG_FILE="$LOG_DIR/DitherEngine.log"
+mkdir -p "$LOG_DIR"
+
+{
+    echo "===== $(date) ====="
+    echo "BUNDLE_DIR=$BUNDLE_DIR"
+    echo "HTML_PATH=$HTML_PATH"
+    echo "MAIN_JS=$MAIN_JS"
+} >> "$LOG_FILE"
+
+if [ ! -f "$HTML_PATH" ]; then
+    /usr/bin/osascript -e 'display alert "Dither Engine" message "dither-engine.html introuvable dans le bundle."'
+    exit 1
+fi
+if [ ! -f "$MAIN_JS" ]; then
+    /usr/bin/osascript -e 'display alert "Dither Engine" message "main.js introuvable dans le bundle."'
+    exit 1
+fi
+
+# exec osascript so it REPLACES this bash process and becomes the bundle's main
+# process. This is required for LaunchServices to deliver the open-document Apple
+# Event (file dropped on the Dock/Finder icon) to our NSApplication delegate —
+# otherwise the event goes to bash and is lost. stderr+stdout go to the log.
+exec /usr/bin/osascript -l JavaScript "$MAIN_JS" "$HTML_PATH" >> "$LOG_FILE" 2>&1

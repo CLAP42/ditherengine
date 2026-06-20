@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Build artifacts / distributables
+*.zip
+*.dmg
+icon.iconset/
+icon_*.png
+
+# Ad-hoc code signature (env-specific, regenerated on each build; re-sign locally)
+Dither Engine.app/Contents/_CodeSignature/
+
+# Local editor/tooling config (machine-specific paths)
+.claude/
+
+# Logs
+*.log
