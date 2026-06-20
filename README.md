@@ -4,6 +4,10 @@ A single-file image / GIF / video **dithering** tool with a stackable effects
 pipeline. Runs entirely in the browser (no build step, no dependencies), and
 ships as a tiny native macOS app wrapper.
 
+![A photo dithered with the Atkinson algorithm and a faded palette](docs/preview.png)
+
+<sub>Sample image dithered in-app (Atkinson + faded palette).</sub>
+
 - **20 dithering algorithms** — error diffusion (Floyd–Steinberg, Atkinson,
   Burkes, Stucki, Jarvis–Judice–Ninke, Sierra, Stevenson–Arce…), ordered
   (Bayer 2/4/8/16, clustered dot), blue noise (void-and-cluster), random,
