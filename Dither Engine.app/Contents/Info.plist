@@ -44,6 +44,6 @@
 	<key>NSHighResolutionCapable</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>
-	<string>Personal use only</string>
+	<string>MIT License — Copyright (c) 2026 Romuald Varin (CLAP42)</string>
 </dict>
 </plist>
