@@ -15,3 +15,6 @@ Dither Engine.app/Contents/_CodeSignature/
 
 # Logs
 *.log
+
+# Redundant root icon (canonical copy lives in the .app bundle)
+/icon.icns

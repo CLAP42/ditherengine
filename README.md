@@ -62,7 +62,7 @@ dither-engine.html        The engine — source of truth (two <script> blocks:
                           #dither-core = pure engine reused by the worker)
 Dither Engine.app/        Native macOS wrapper (JXA + WKWebView)
 make_icon.py              Regenerates the dithered app icon (pure stdlib, no deps)
-HANDOFF.md                Architecture notes & internals
+docs/ARCHITECTURE.md      Architecture notes & internals
 ```
 
 Regenerate the icon:
